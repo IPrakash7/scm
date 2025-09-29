@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+>
+<head>
+    <meta charset="UTF-8"> <!-- Required for Sanskrit/Hindi -->
+    <title data-th-text="${loggedInUser.name}+' |  Dashboard'">
+        Profile Page
+    </title>
+
+    <!-- Google Font with Devanagari support -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', Arial, sans-serif;
+        }
+        .sanskrit {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <!-- sidebar -->
+    <div th:if="${loggedInUser}">
+        <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+    </div>
+
+    <div class="sm:pl-64 pt-20" style="height: 1000px">
+        <div class="flex justify-center flex-col items-center">
+            <h1 class="text-5xl">Welcome to Dashboard page</h1>
+            <p>
+                Welcome to the Smart Contact Manager Dashboard – your central hub to manage users, view data, track
+                analytics, and ensure secure, fast, and reliable operations.
+            </p>
+            <div class="sanskrit">                कृष्ण सदा सहायते</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    console.log("this is profile page");
+</script>
+</body>
+</html>
